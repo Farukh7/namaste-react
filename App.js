@@ -1,37 +1,42 @@
-/**
- *
- * <div id="parent">
- *   <div id = "child">
- *     <h1>This is h1 tag</h1>
- *     <h2>This is h2 tag</h2>
- *    </div>
- *    <div id = "child">
- *     <h1>This is h1 tag</h1>
- *     <h2>This is h2 tag</h2>
- *     </div>
- * </div>
- *
- */
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "This is h1 tag"),
-    React.createElement("h2", {}, "This is h2 tag"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "This is h1 tag"),
-    React.createElement("h2", {}, "This is h2 tag"),
-  ]),
-]);
+// JSX - HTML-Like or XML-Like syntax
 
-// const heading = React.createElement(
-//   "h1",
-//   { id: "heading", xyz: "abc" },
-//   "Hello world from React"
-// );
+// JSX (transpiled before it reaches as the JS engine) - PARCEL - Babel
 
-console.log(parent); // object
+// JSX => Babel transpiled it to React.createElement => REactELement - JS Object => HTMLElement(render)
+
+const elem = <span>React Element</span>
+
+const title = (
+  <h1 className="head" tabIndex="5">
+    {elem}
+    Namaste React using JSX
+  </h1>
+);
+
+
+// React Components
+// Class Based Components - OLD Way writing code
+// Functional Based Components - NEW Way writing code
+
+// React Functional Component
+
+const fun = () => {
+  return true;
+};
+
+
+const number = 1000;
+// Component Composition
+const HeadingComponent = () => (
+  <div id="container">
+    {title}
+    <h1 className="heading">Namaste React Functional Component</h1>
+  </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+root.render(<HeadingComponent></HeadingComponent>);
